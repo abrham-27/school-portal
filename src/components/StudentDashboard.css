@@ -1,0 +1,756 @@
+/* StudentDashboard.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.student-dashboard {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #000000;
+}
+
+/* Header Styles */
+.dashboard-header {
+    background: #1a1a1a;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(255,255,255,0.1);
+    border-bottom: 1px solid #333;
+}
+
+.dashboard-header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-info span {
+    color: #cccccc;
+    font-weight: 500;
+}
+
+.logout-btn {
+    background: #ff4444;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: #cc0000;
+}
+
+/* Main Content Wrapper */
+.dashboard-content-wrapper {
+    display: flex;
+    flex: 1;
+    background: #000000;
+}
+
+/* Sidebar Styles - Left Side */
+.sidebar {
+    width: 280px;
+    background: #1a1a1a;
+    color: white;
+    padding: 2rem 0;
+    height: calc(100vh - 80px);
+    position: fixed;
+    left: 0;
+    top: 80px;
+    overflow-y: auto;
+    border-right: 1px solid #333;
+}
+
+.sidebar-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+    padding: 0 1rem;
+    color: #ffffff;
+    border-bottom: 2px solid #333;
+    padding-bottom: 1rem;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 1.2rem 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+    color: #cccccc;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1rem;
+}
+
+.sidebar li:hover {
+    background: #2a2a2a;
+    color: #ffffff;
+    border-left-color: #007bff;
+}
+
+.sidebar li.active {
+    background: #2a2a2a;
+    color: #ffffff;
+    border-left-color: #007bff;
+}
+
+/* Main Content Area - Centered */
+.content {
+    flex: 1;
+    margin-left: 280px; /* Same as sidebar width */
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 80px);
+    background: #000000;
+}
+
+.content > div {
+    width: 100%;
+    max-width: 900px;
+}
+
+/* Card Styles */
+.card {
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
+    border: 1px solid #333;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #333;
+}
+
+.card h2 {
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+/* Profile Information Styles */
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    background-color: #000000;
+}
+
+.profile-section h3 {
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid #333;
+    background-color: #000000;
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.2rem;
+}
+
+.profile-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1.2rem;
+    background: #2a2a2a;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+    transition: transform 0.2s ease;
+}
+
+.profile-item:hover {
+    transform: translateY(-2px);
+}
+
+.profile-item strong {
+    color: #999999;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.profile-item span {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* Button Styles */
+.refresh-btn, .retry-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.refresh-btn:hover, .retry-btn:hover {
+    background: #218838;
+    transform: translateY(-1px);
+}
+
+.refresh-btn:disabled {
+    background: #666666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Assessment Styles */
+.assessment-submenu {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.assessment-btn {
+    background: #2a2a2a;
+    color: #007bff;
+    border: 2px solid #007bff;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    min-width: 150px;
+}
+
+.assessment-btn:hover {
+    background: #007bff;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.assessment-btn.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+    transform: translateY(-2px);
+}
+
+/* Loading and Error States */
+.loading-section {
+    text-align: center;
+    padding: 4rem;
+    color: #cccccc;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.error-section {
+    text-align: center;
+    padding: 3rem;
+}
+
+.no-data {
+    color: #ff6b6b;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+/* Coming Soon Cards */
+.card h2 {
+    text-align: center;
+    color: #cccccc;
+    font-size: 1.4rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 250px;
+    }
+    
+    .content {
+        margin-left: 250px;
+        padding: 1.5rem;
+    }
+    
+    .profile-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-content-wrapper {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        top: 0;
+        padding: 1rem 0;
+    }
+    
+    .content {
+        margin-left: 0;
+        padding: 1rem;
+    }
+    
+    .dashboard-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    .dashboard-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .card {
+        padding: 1.5rem;
+    }
+    
+    .assessment-submenu {
+        justify-content: center;
+    }
+    
+    .assessment-btn {
+        min-width: 120px;
+        padding: 0.8rem 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .content {
+        padding: 0.5rem;
+    }
+    
+    .card {
+        padding: 1.2rem;
+        border-radius: 8px;
+    }
+    
+    .sidebar {
+        padding: 0.5rem 0;
+    }
+    
+    .sidebar li {
+        padding: 1rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .profile-item {
+        padding: 1rem;
+    }
+    
+    .card-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+/* Scrollbar Styling for Sidebar */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: #0056b3;
+}
+
+/* Custom scrollbar for entire page */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+/* Add these styles to your existing StudentDashboard.css */
+
+/* Results Section */
+.course-selection {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.course-selection label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.course-dropdown {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.results-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.summary-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.summary-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.summary-value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.results-table-container {
+    margin-top: 20px;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.results-table th,
+.results-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.results-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.marks-cell {
+    font-weight: bold;
+    color: #2c5aa0;
+}
+
+/* Class Arrangement */
+.arrangement-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.arrangement-table th,
+.arrangement-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+/* Courses Grid */
+.courses-list {
+    margin-top: 1rem;
+}
+
+.courses-description {
+    color: #666;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.course-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.course-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.course-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.course-header h4 {
+    margin: 0;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.course-code {
+    background: #007bff;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.course-description {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.course-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* View Marks Button */
+.view-marks-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.view-marks-btn:hover:not(:disabled) {
+    background: #218838;
+}
+
+.view-marks-btn:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Marks Modal */
+.marks-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.marks-modal .modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.marks-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.marks-table th,
+.marks-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.marks-table th {
+    background: #f8f9fa;
+    font-weight: bold;
+}
+
+.marks-summary {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 5px;
+    border-left: 4px solid #007bff;
+}
+
+.close-marks-btn {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-marks-btn:hover {
+    background: #5a6268;
+}
+
+.arrangement-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.current-student {
+    background-color: #e3f2fd !important;
+    font-weight: bold;
+}
+
+.arrangement-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* No Data Message */
+.no-data-message {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+    font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .results-summary {
+        grid-template-columns: 1fr;
+    }
+    
+    .results-table,
+    .arrangement-table {
+        font-size: 14px;
+    }
+    
+    .results-table th,
+    .results-table td,
+    .arrangement-table th,
+    .arrangement-table td {
+        padding: 8px;
+    }
+}
+/* Course Grade Level */
+.course-grade {
+    margin: 0.5rem 0;
+    padding: 0.25rem 0.5rem;
+    background: #e9ecef;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: #495057;
+}
+
+.course-grade strong {
+    color: #343a40;
+}
+
+/* Enhanced course cards */
+.course-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+
+.course-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Better no data messages */
+.no-data-message {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #666;
+}
+
+.no-data-message p {
+    margin: 0.5rem 0;
+}
+
+/* Loading states */
+.loading-section {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    font-style: italic;
+}

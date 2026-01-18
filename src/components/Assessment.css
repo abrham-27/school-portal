@@ -1,0 +1,55 @@
+.assessment-container {
+  max-width: 800px;
+  margin: 50px auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.assessment-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.tab-button {
+  background: #ddd;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-button.active {
+  background: #007bff;
+  color: white;
+}
+
+.assessment-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.assessment-table th,
+.assessment-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.assessment-summary {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.status.pass {
+  color: green;
+}
+
+.status.fail {
+  color: red;
+}
